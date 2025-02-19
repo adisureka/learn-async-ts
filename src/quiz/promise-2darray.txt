@@ -2,3 +2,50 @@
 - Is there a difference in the flow of execution from when the code was in the setTimeout function?
 - Is the flow of execution in both these examples different from the flow of execution with the examples using the fetch() API, which also returns a promise? 
 - If yes, explain the code execution difference. Add your explanation to this file.
+
+The output with setTimeOut Function is the following
+Sum called ... 
+returning from sum
+sumPromise1: Promise { <pending> }
+Sum called ... 
+returning from sum
+sumPromise2: Promise { <pending> }
+Cannot sum an empty array
+Adding 1 to sum
+Adding 2 to sum
+Adding 3 to sum
+Adding 4 to sum
+Adding 5 to sum
+Adding 6 to sum
+Adding 7 to sum
+Adding 8 to sum
+Adding 9 to sum
+
+The output without setTimeOut Function is the following
+Sum called ... 
+Adding 1 to sum
+Adding 2 to sum
+Adding 3 to sum
+Adding 4 to sum
+Adding 5 to sum
+Adding 6 to sum
+Adding 7 to sum
+Adding 8 to sum
+Adding 9 to sum
+returning from sum
+sumPromise1: Promise { <pending> }
+Sum called ... 
+returning from sum
+sumPromise2: Promise { <pending> }
+Cannot sum an empty array
+
+The difference is that with the setTimeOut Function all the loop runs later 
+and without the setTimeout function all the loops runs first
+
+We first call the sum2DArray, with the setTimeout, code directly gose to console.log(sumPromise1) and generate that pending state, then goes to sum2Darray([]) and the consolo.log
+The loop is in setTimeOut get executed later.
+Without the setTimeOut, code generate loops and when the loop is done, move to the next function call.
+ 
+setTimeOut makes those code runs asynchronously, which is very similar to the fetch and then, with the setTimeOut the code is the same as fetch
+without the setTimeout the code flow is different
+

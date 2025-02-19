@@ -4,7 +4,7 @@
  * @returns a promise that resolves to the sum of all numbers in the 2D array
  * or rejects if the array is empty
  */
-function sum2DArray(arr: number[][]): Promise<number> {
+function sum2DArray(arr: number[][]): Promise<unknown> {
     return new Promise((resolve, reject) => {
         console.log('Sum called ... ');
         if(arr.length === 0) {
@@ -27,6 +27,8 @@ function sum2DArray(arr: number[][]): Promise<number> {
             resolve(sum);
         }, 0);
         console.log('returning from sum');
+    }).catch(function(rej) {
+        console.log(rej)
     });
 }
 
