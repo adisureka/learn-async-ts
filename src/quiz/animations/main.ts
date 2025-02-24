@@ -13,6 +13,23 @@ const alice10 = document.querySelector<HTMLElement>("#alice1");
 const alice20 = document.querySelector<HTMLElement>("#alice2");
 const alice30 = document.querySelector<HTMLElement>("#alice3");
 
+async function alice1() {
+    return alice10.animate(aliceTumbling1, aliceTiming1).finished
+}
+
+async function alice2() {
+    await alice1()
+    return alice20.animate(aliceTumbling1, aliceTiming1).finished
+}
+
+async function alice3() {
+    await alice2()
+    return alice30.animate(aliceTumbling1, aliceTiming1).finished
+}
+
+alice3()
+
+/*
 if(alice10 && alice20 && alice30) {
   // Promise chain  
   alice10.animate(aliceTumbling1, aliceTiming1).finished  
@@ -30,7 +47,7 @@ if(alice10 && alice20 && alice30) {
 }
 else{
   console.warn("#alice not found");
-}
+}*/
 
 // alice10
 //     .animate(aliceTumbling1, aliceTiming1)
